@@ -133,7 +133,7 @@ a { color: inherit; }
   min-height: 100svh; display: flex; align-items: center;
 }
 .hero__foto { position: absolute; inset: 0 0 0 38%; z-index: -1; }
-.hero__foto img { width: 100%; height: 100%; object-fit: cover; object-position: 30% 50%; }
+.hero__foto img { width: 100%; height: 100%; object-fit: cover; object-position: 85% 50%; }
 .hero__foto::after {
   content: ""; position: absolute; inset: 0;
   background:
@@ -351,7 +351,7 @@ a { color: inherit; }
 @media (max-width: 900px) {
   .hero { align-items: flex-end; }
   .hero__foto { inset: 0 0 auto 0; height: 62svh; }
-  .hero__foto img { object-position: 50% 50%; }
+  .hero__foto img { object-position: 12% 50%; }
   .hero__foto::after { background: linear-gradient(0deg, #000 0%, rgba(0,0,0,.2) 45%, rgba(0,0,0,.35) 100%); }
   .hero__in { padding-top: 40svh; padding-bottom: 3rem; }
   .hero__marca { margin-bottom: 1.25rem; }
