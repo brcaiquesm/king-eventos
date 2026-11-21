@@ -314,21 +314,40 @@ a { color: inherit; }
 }
 .cal__nav:hover:not(:disabled) { border-color: var(--ouro); }
 .cal__nav:disabled { opacity: .3; cursor: default; }
-.cal__semana, .cal__dias { display: grid; grid-template-columns: repeat(7, 1fr); gap: .2rem; }
+.cal__semana, .cal__dias { display: grid; grid-template-columns: repeat(7, 1fr); row-gap: .25rem; }
 .cal__semana span { font-size: .75rem; font-weight: 700; color: var(--cinza); padding: .2rem 0; }
 .cal__dia {
-  aspect-ratio: 1; min-height: 2.4rem; border-radius: 50%; border: 1px solid transparent; cursor: pointer;
-  background: none; color: var(--marfim); font: inherit; font-size: .9rem; font-weight: 600;
-  display: grid; place-items: center; position: relative;
+  height: 2.6rem; border: 0; padding: 0; cursor: pointer; background: none;
+  color: var(--marfim); font: inherit; font-size: .9rem; font-weight: 600; position: relative;
 }
-.cal__dia:hover:not(:disabled) { border-color: var(--ouro-escuro); }
+.cal__dia span {
+  display: grid; place-items: center; width: 2.4rem; height: 2.4rem; margin: 0 auto;
+  border-radius: 50%; border: 1px solid transparent; position: relative; z-index: 1;
+}
+.cal__dia:hover:not(:disabled) span { border-color: var(--ouro-escuro); }
 .cal__dia:disabled { color: #4A4538; cursor: default; }
-.cal__dia--hoje { border-color: var(--linha); }
+.cal__dia--hoje span { border-color: var(--linha); }
 .cal__dia--fim:not(:disabled) { color: var(--ouro-claro); }
-.cal__dia--ocupado { text-decoration: line-through; }
-.cal__dia[aria-pressed="true"] { background: var(--dourado); color: #1A1305; border-color: #E6C068; }
-.cal__escolha { margin: .8rem 0 0; font-size: .9rem; color: var(--cinza); }
+.cal__dia--ocupado span { text-decoration: line-through; }
+/* faixa do período (como em reserva de hotel) */
+.cal__dia--meio, .cal__dia--ini, .cal__dia--fimp { background: rgba(212,167,60,.16); }
+.cal__dia--ini { background: linear-gradient(90deg, transparent 50%, rgba(212,167,60,.16) 50%); }
+.cal__dia--fimp { background: linear-gradient(90deg, rgba(212,167,60,.16) 50%, transparent 50%); }
+.cal__dia--meio { color: var(--marfim); }
+.cal__dias > :nth-child(7n+1).cal__dia--meio, .cal__dias > :nth-child(7n+1).cal__dia--fimp { border-radius: 1.3rem 0 0 1.3rem; }
+.cal__dias > :nth-child(7n).cal__dia--meio, .cal__dias > :nth-child(7n).cal__dia--ini { border-radius: 0 1.3rem 1.3rem 0; }
+.cal__dias > :nth-child(7n+1).cal__dia--fimp { background: none; }
+.cal__dias > :nth-child(7n).cal__dia--ini { background: none; }
+.cal__dia[aria-pressed="true"]:not(.cal__dia--meio) span { background: var(--dourado); color: #1A1305; border-color: #E6C068; }
+.cal__escolha { margin: .8rem 0 0; font-size: .9rem; color: var(--cinza); line-height: 1.45; }
 .cal__escolha strong { color: var(--ouro-claro); }
+.cal__escolha em { display: block; margin-top: .35rem; font-style: normal; color: #E8B86A; }
+.cal__limpar {
+  margin-top: .5rem; background: none; border: 0; color: var(--cinza); font: inherit; font-size: .85rem;
+  text-decoration: underline; text-underline-offset: .25em; cursor: pointer; min-height: 2rem;
+}
+.cal__limpar:hover { color: var(--ouro-claro); }
+.cal__limpar[hidden] { display: none; }
 
 /* Rodapé */
 .rodape { background: var(--carvao); border-top: 1px solid var(--linha); color: var(--cinza); }
