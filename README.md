@@ -3,7 +3,7 @@
 Site institucional de uma área de lazer para festas e day use, com piscina, churrasqueira e salão.
 O objetivo do site é levar o visitante a consultar datas pelo WhatsApp, com as informações que ele precisa para decidir antes de chamar: estrutura, valores, como reservar, dúvidas e localização.
 
-**Site:** https://www.SEUDOMINIO.com.br
+**Site:** https://www.kingeventos.com.br
 
 ## Decisões de design
 
@@ -80,7 +80,6 @@ Cada `git push` na branch `main` publica uma nova versão automaticamente.
 
 ## Antes de publicar, trocar
 
-- [ ] `SEUDOMINIO.com.br` em `index.html`, `robots.txt` e `sitemap.xml`
 - [ ] Respostas das dúvidas frequentes e passos de reserva
 - [ ] Status das datas especiais (seção `#datas`)
 - [ ] Variável `GOOGLE_CALENDAR_ICS_URL` na Vercel
