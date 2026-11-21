@@ -32,7 +32,7 @@ def grade(img,night,spot=None,sky=0):
     # clareza (contraste local)
     L=cv2.cvtColor(np.clip(f,0,1),cv2.COLOR_BGR2LAB)
     l=L[...,0]/100; bl=cv2.GaussianBlur(l,(0,0),max(w,h)/60)
-    l=np.clip(l+0.35*(l-bl),0,1)
+    l=np.clip(l+0.25*(l-bl),0,1)
     # curva em S + preto mais profundo
     l=np.clip((l-0.03)/0.97,0,1); l=l+0.18*(l-0.5)*(1-np.abs(2*l-1))*2*0.5
     if night: l=np.clip(l**0.9,0,1)
@@ -56,10 +56,10 @@ def grade(img,night,spot=None,sky=0):
         f=f*(1+a*np.clip(1-d,0,1)[...,None]**2)
     # vinheta
     d=np.sqrt(((xx-w/2)/(w/2))**2+((yy-h/2)/(h/2))**2)/1.414
-    f=f*(1-0.38*np.clip(d-0.35,0,1)[...,None]**1.6/0.42)
+    f=f*(1-0.26*np.clip(d-0.4,0,1)[...,None]**1.6/0.38)
     img=(np.clip(f,0,1)*255).astype(np.uint8)
     bl=cv2.GaussianBlur(img,(0,0),1.2); img=cv2.addWeighted(img,1.5,bl,-.5,0)
-    return grain(img,4)
+    return grain(img,3)
 
 def crop(img,x0,y0,x1,y1):
     h,w=img.shape[:2]; return img[int(y0*h):int(y1*h),int(x0*w):int(x1*w)]
@@ -149,15 +149,19 @@ def c_noite(im,w,h):
     rect(m,w,h,38,29,58,36); rect(m,w,h,63,3,70,30)
     return inpaint(im,m,9)
 
-job('hero-noite','f29',(0,0,.68,1),True,c_hero,spot=(55,45,45,.18))
-job('fachada','f10',(0,.04,1,.76),False,post=(0,0,1,.77),spot=(55,45,40,.12),sky=40)
-job('sinuca','f08',(0,.08,1,.80),False,post=(.2,.12,1,1),spot=(52,45,45,.22))
-job('piscina-mural','f18',(0,.14,1,1),False,c_mural,spot=(50,55,50,.12),sky=20)
-job('cozinha','f07',(.04,.18,1,.60),False,c_cozinha,post=(0,0,1,.93),spot=(55,55,45,.12))
-job('salao','f22',(0,.18,1,.78),False,c_salao,spot=(60,45,50,.1))
-job('playground','f17',(0,.28,1,.80),False,c_play,spot=(68,45,35,.15),sky=20)
-job('corredor','f11',(0,.18,1,.88),False,c_corredor,post=(0,0,.9,1),spot=(55,35,40,.12),sky=25)
-job('campinho','f33',(0,.08,1,.74),False,c_campinho,spot=(50,55,40,.1),sky=40)
-job('piscina-noite','f30',(0,.30,.70,.95),True,c_noite,post=(0,0,.86,1),spot=(40,55,45,.15))
-job('piscina-deck','f26',(0,.22,1,.95),False,post=(.2,0,1,1),spot=(65,45,45,.12),sky=15)
-job('piscina-fachada','f34',(0,.30,1,.82),False,spot=(45,35,45,.12),sky=12)
+
+def c_hero_luz(im,w,h):   # só luz: escurece carro e moto, sem apagar nada
+    im=burn(im,w,h,90,63,16,17,.9)
+    return burn(im,w,h,40,93,26,11,.4)
+
+# Sem remoção por preenchimento: só recorte, luz e cor
+job('hero-noite','f29',(0,0,.68,1),True,c_hero_luz,spot=(55,45,45,.15))
+job('fachada','f10',(0,.04,1,.76),False,post=(0,0,1,.77),spot=(55,45,40,.1),sky=40)
+job('sinuca','f08',(0,.08,1,.80),False,post=(.2,.12,1,1),spot=(52,45,45,.18))
+job('piscina-mural','f18',(0,.14,1,1),False,post=(.28,0,1,1),spot=(50,55,50,.1),sky=20)
+job('cozinha','f07',(.04,.18,1,.60),False,post=(.06,.30,1,.72),spot=(55,55,45,.1))
+job('playground','f17',(0,.28,1,.80),False,post=(.40,0,1,.80),spot=(55,50,40,.12),sky=20)
+job('corredor','f11',(0,.18,1,.88),False,c_corredor,post=(0,0,.9,1),spot=(55,35,40,.1),sky=25)
+job('piscina-noite','f30',(0,.30,.70,.95),True,post=(0,.38,.86,1),spot=(40,45,45,.12))
+job('piscina-deck','f26',(0,.22,1,.95),False,post=(.2,0,1,1),spot=(65,45,45,.1),sky=15)
+job('piscina-fachada','f34',(0,.30,1,.82),False,spot=(45,35,45,.1),sky=12)
