@@ -7,20 +7,23 @@ O objetivo do site é levar o visitante a consultar datas pelo WhatsApp, com as 
 
 ## Decisões de design
 
-- **Conceito "dia de rei".** O nome pede coroa, mas o espaço é de lazer, não de gala. Por isso a paleta troca o dourado e preto de luxo por azul real, água de piscina e amarelo-sol.
-- **Hero como piscina.** O topo tem um reflexo de luz na água feito só com SVG (`feTurbulence`) e CSS, sem vídeo nem imagem pesada, e termina numa borda de azulejos.
-- **Azulejo como sistema.** A grade da estrutura e os placeholders de foto usam o mesmo rejunte da piscina, ligando a identidade ao espaço físico.
-- **Informação antes da conversa.** Diferente dos concorrentes analisados, o site mostra valores, passo a passo de reserva e perguntas frequentes.
+- **Preto e dourado, como a marca.** A identidade parte do flyer e do letreiro da King: coroa e "KING" em dourado metálico sobre preto. Títulos em Cinzel (serifa romana, a mesma família visual do logo) e texto em Manrope.
+- **Foto noturna no topo.** A piscina iluminada com o mural da casa abre o site e conversa com o fundo preto.
+- **Faixa de estrutura.** A linha de ícones do flyer (piscina aquecida, campinho, playground, TV 75", churrasqueira, sinuca) virou a primeira coisa depois do topo, com ícones próprios em traço dourado.
+- **Tour em vídeo.** Um vídeo vertical de 21 s, sem som, que toca só quando aparece na tela.
+- **Agenda de datas especiais.** Natal e Ano Novo com status, como no flyer.
 
-| Token        | Cor       | Uso                      |
-|--------------|-----------|--------------------------|
-| Azul real    | `#1F2F86` | Marca e títulos          |
-| Noite        | `#141E57` | Texto                    |
-| Água         | `#3FBCDC` | Ícones, detalhes         |
-| Água clara   | `#DDF3F8` | Rejunte, fundos          |
-| Sol          | `#FFC53D` | Coroa e botões de ação   |
+| Token       | Cor       | Uso                    |
+|-------------|-----------|------------------------|
+| Preto       | `#000000` | Fundo                  |
+| Carvão      | `#12100D` | Superfícies            |
+| Ouro        | `#D4A73C` | Ícones, detalhes       |
+| Ouro claro  | `#F3D47A` | Títulos                |
+| Marfim      | `#F4EEE2` | Texto                  |
 
-Tipografia: **Big Shoulders Display** (títulos) e **Figtree** (texto), via Google Fonts.
+## Fotos e vídeo
+
+As fotos originais foram recortadas (tirando objetos de obra e sombras), corrigidas em cor e contraste, tratadas contra ruído nas noturnas e exportadas em WebP. O vídeo do tour junta quatro trechos gravados ao entardecer, com leve ajuste de cor, em H.264.
 
 ## Tecnologia
 
@@ -29,8 +32,9 @@ HTML, CSS e JavaScript puros, sem build. Responsivo, com foco de teclado visíve
 ```
 ├── index.html
 ├── css/styles.css
-├── js/main.js        ← número do WhatsApp fica aqui (CONFIG)
-├── img/              ← fotos (veja img/LEIA-ME.md)
+├── js/main.js        ← número do WhatsApp (CONFIG)
+├── img/fotos/        ← fotos tratadas (.webp)
+├── img/video/        ← tour.mp4 + poster
 ├── vercel.json
 ├── robots.txt
 └── sitemap.xml
@@ -55,8 +59,6 @@ Cada `git push` na branch `main` publica uma nova versão automaticamente.
 ## Antes de publicar, trocar
 
 - [ ] `SEUDOMINIO.com.br` em `index.html`, `robots.txt` e `sitemap.xml`
-- [ ] Número do WhatsApp em `js/main.js` e no rodapé
 - [ ] Cidade, endereço e mapa (`index.html`)
-- [ ] Instagram
-- [ ] Valores, horários, capacidade e respostas das dúvidas
-- [ ] Fotos em `img/`
+- [ ] Respostas das dúvidas frequentes e passos de reserva
+- [ ] Status das datas especiais (seção `#datas`)

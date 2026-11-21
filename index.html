@@ -3,22 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>King Eventos | Área de lazer com piscina para festas e day use</title>
-  <meta name="description" content="Área de lazer com piscina, churrasqueira e salão para festas. Alugue a King Eventos por dia para aniversários, confraternizações e encontros em família.">
-  <meta name="theme-color" content="#1F2F86">
+  <title>King Eventos | Área de lazer com piscina aquecida para festas</title>
+  <meta name="description" content="Área de lazer com piscina aquecida, campinho, playground, sinuca, churrasqueira e salão com TV 75&quot;. Alugue a King Eventos para aniversários, confraternizações e datas especiais.">
+  <meta name="theme-color" content="#000000">
   <link rel="canonical" href="https://www.SEUDOMINIO.com.br/">
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">
-  <meta property="og:title" content="King Eventos | Seu dia de rei">
-  <meta property="og:description" content="Piscina, churrasqueira e espaço para festas. Consulte datas pelo WhatsApp.">
+  <meta property="og:title" content="King Eventos | Aqui, seus melhores momentos acontecem">
+  <meta property="og:description" content="Piscina aquecida, campinho, playground, sinuca e salão completo. Consulte datas pelo WhatsApp.">
   <meta property="og:url" content="https://www.SEUDOMINIO.com.br/">
   <meta property="og:image" content="https://www.SEUDOMINIO.com.br/img/og.jpg">
 
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="img/fotos/hero-noite.webp" media="(min-width: 901px)">
   <link rel="stylesheet" href="css/styles.css">
 
   <script type="application/ld+json">
@@ -26,16 +27,18 @@
     "@context": "https://schema.org",
     "@type": "EventVenue",
     "name": "King Eventos",
-    "description": "Área de lazer com piscina, churrasqueira e salão para festas.",
+    "slogan": "Aqui, seus melhores momentos acontecem!",
+    "description": "Área de lazer com piscina aquecida, campinho de futebol, playground, sinuca, churrasqueira e salão com TV 75 polegadas.",
     "url": "https://www.SEUDOMINIO.com.br/",
-    "telephone": "+55-00-00000-0000",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Rua Exemplo, 123",
-      "addressLocality": "Sua Cidade",
-      "addressRegion": "SP",
-      "addressCountry": "BR"
-    }
+    "telephone": "+55-14-99814-0623",
+    "sameAs": ["https://www.instagram.com/kingeventos014/"],
+    "amenityFeature": [
+      {"@type": "LocationFeatureSpecification", "name": "Piscina aquecida", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Campinho de futebol", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Playground", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Sinuca", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Churrasqueira", "value": true}
+    ]
   }
   </script>
 </head>
@@ -46,7 +49,7 @@
     <div class="topo__in">
       <a class="marca" href="#inicio" aria-label="King Eventos, voltar ao início">
         <svg class="marca__coroa" viewBox="0 0 64 44" aria-hidden="true"><use href="#coroa"/></svg>
-        <span>King Eventos</span>
+        <span class="marca__nome">King<small>eventos</small></span>
       </a>
 
       <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" data-menu-btn>
@@ -55,160 +58,150 @@
       </button>
 
       <nav class="menu" id="menu" aria-label="Principal" data-menu>
-        <a href="#espaco">O espaço</a>
         <a href="#estrutura">Estrutura</a>
-        <a href="#valores">Valores</a>
+        <a href="#espaco">O espaço</a>
+        <a href="#tour">Tour</a>
         <a href="#galeria">Fotos</a>
+        <a href="#datas">Datas</a>
         <a href="#duvidas">Dúvidas</a>
-        <a href="#local">Como chegar</a>
-        <a class="btn btn--sol btn--p" href="#" data-wa="Olá! Vim pelo site e quero saber as datas disponíveis na King Eventos.">Ver datas no WhatsApp</a>
+        <a class="btn btn--ouro btn--p" href="#" data-wa="Olá! Vim pelo site e quero saber as datas disponíveis na King Eventos.">Consultar datas</a>
       </nav>
     </div>
   </header>
 
   <main id="conteudo">
 
-    <!-- HERO: a piscina -->
+    <!-- HERO -->
     <section class="hero" id="inicio">
-      <div class="hero__agua" aria-hidden="true"></div>
+      <picture class="hero__foto">
+        <source media="(max-width: 900px)" srcset="img/fotos/hero-noite-mob.webp">
+        <img src="img/fotos/hero-noite.webp" alt="Piscina iluminada à noite com o mural da King Eventos e a fachada com letreiro dourado" width="1088" height="740" fetchpriority="high">
+      </picture>
       <div class="hero__in">
         <svg class="hero__coroa" viewBox="0 0 64 44" aria-hidden="true"><use href="#coroa"/></svg>
-        <h1 class="hero__titulo">Seu dia de rei<br>começa aqui.</h1>
-        <p class="hero__sub">Área de lazer com piscina, churrasqueira e salão para festas em <strong>Sua Cidade – SP</strong>. Alugue o espaço só para você e seus convidados.</p>
+        <p class="hero__marca" aria-hidden="true">King</p>
+        <h1 class="hero__titulo">Aqui, seus melhores momentos acontecem.</h1>
+        <p class="hero__sub">Área de lazer com piscina aquecida, campinho, playground, sinuca e salão completo. O espaço inteiro fica só para você e seus convidados.</p>
         <div class="hero__acoes">
-          <a class="btn btn--sol" href="#" data-wa="Olá! Vim pelo site e quero saber as datas disponíveis na King Eventos.">Ver datas no WhatsApp</a>
-          <a class="btn btn--vidro" href="#espaco">Conhecer o espaço</a>
+          <a class="btn btn--ouro" href="#" data-wa="Olá! Vim pelo site e quero saber as datas disponíveis na King Eventos.">Consultar datas no WhatsApp</a>
+          <a class="btn btn--linha" href="#tour">Ver o tour em vídeo</a>
         </div>
-        <ul class="hero__fatos">
-          <li><b>Até 100</b> convidados</li>
-          <li><b>Piscina</b> adulto e infantil</li>
-          <li><b>Espaço</b> exclusivo no dia</li>
-        </ul>
       </div>
-      <div class="borda-azulejo" aria-hidden="true"></div>
+    </section>
+
+    <!-- ESTRUTURA: a faixa de ícones do flyer, em versão site -->
+    <section class="estrutura" id="estrutura" aria-labelledby="estrutura-titulo">
+      <h2 class="sr" id="estrutura-titulo">Estrutura</h2>
+      <ul class="faixa">
+        <li>
+          <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 22c3 0 3 2 6.5 2S13 22 16 22s3 2 6.5 2S26 22 29 22M3 27c3 0 3 2 6.5 2S13 27 16 27s3 2 6.5 2S26 27 29 27M10 18V6a3 3 0 0 1 6 0M20 18V6a3 3 0 0 1 6 0M10 10h10M10 14h10"/></svg>
+          <span>Piscina aquecida</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 7h26v18H3zM16 7v18M16 19.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM3 12h4v8H3M29 12h-4v8h4"/></svg>
+          <span>Campinho de futebol</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 28 10 4h2l6 24M7 16h8M18 28l8-12M22 10h6v18"/></svg>
+          <span>Playground</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 6h26v16H3zM11 27h10M16 22v5"/></svg>
+          <span>TV 75" e home theater</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 14h22a11 11 0 0 1-22 0zM10 25l-3 4M22 25l3 4M11 10c0-2 2-2 2-4M16 10c0-2 2-2 2-4M21 10c0-2 2-2 2-4"/></svg>
+          <span>Churrasqueira completa</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="9" r="3.5"/><circle cx="12" cy="16" r="3.5"/><circle cx="20" cy="16" r="3.5"/><circle cx="8" cy="23" r="3.5"/><circle cx="16" cy="23" r="3.5"/><circle cx="24" cy="23" r="3.5"/></svg>
+          <span>Mesa de sinuca</span>
+        </li>
+      </ul>
     </section>
 
     <!-- O ESPAÇO -->
     <section class="secao espaco" id="espaco">
       <div class="espaco__texto">
-        <h2 class="titulo">Um quintal grande para a sua festa</h2>
-        <p>A King Eventos é uma área de lazer alugada por dia. Quando a data é sua, o espaço inteiro também é: piscina, churrasqueira, salão coberto e gramado, sem dividir com outros grupos.</p>
-        <p>É o lugar para o aniversário que não cabe em casa, o churrasco da firma ou aquele domingo que reúne a família toda.</p>
-        <a class="link" href="#estrutura">Ver tudo o que tem no espaço</a>
+        <h2 class="titulo">Um espaço inteiro para a sua festa</h2>
+        <p>Quando a data é sua, a King Eventos é só sua. Piscina, salão, churrasqueira e área externa ficam reservados para o seu grupo, sem dividir com ninguém.</p>
+        <p>O salão envidraçado tem cozinha com bancada em mármore, TV 75" com home theater e mesa de sinuca. Do lado de fora, piscina aquecida com o mural da casa, gramado, playground e campinho para a criançada gastar energia.</p>
+        <a class="link" href="#galeria">Ver todas as fotos</a>
       </div>
       <div class="mosaico">
-        <figure class="foto foto--alta" data-rotulo="Piscina">
-          <img src="img/piscina.jpg" alt="Piscina da King Eventos em dia de sol" loading="lazy" width="800" height="1000">
-        </figure>
-        <figure class="foto" data-rotulo="Área gourmet">
-          <img src="img/gourmet.jpg" alt="Área gourmet com churrasqueira" loading="lazy" width="800" height="600">
-        </figure>
-        <figure class="foto" data-rotulo="Salão">
-          <img src="img/salao.jpg" alt="Salão coberto com mesas montadas" loading="lazy" width="800" height="600">
-        </figure>
+        <figure class="foto mosaico__a"><img src="img/fotos/piscina-mural.webp" alt="Piscina aquecida com o mural da King Eventos" loading="lazy" width="1200" height="1376"></figure>
+        <figure class="foto mosaico__b"><img src="img/fotos/fachada.webp" alt="Fachada envidraçada do salão com letreiro King Eventos" loading="lazy" width="1200" height="1152"></figure>
+        <figure class="foto mosaico__c"><img src="img/fotos/cozinha.webp" alt="Cozinha do salão com bancada em mármore preto" loading="lazy" width="1152" height="672"></figure>
       </div>
     </section>
 
-    <!-- ESTRUTURA: grade de azulejos -->
-    <section class="secao estrutura" id="estrutura">
-      <div class="cabeca">
-        <h2 class="titulo">O que você encontra aqui</h2>
-        <p>Tudo isso está incluso no aluguel. Você traz a comida, a bebida e os convidados.</p>
+    <!-- TOUR EM VÍDEO -->
+    <section class="secao tour" id="tour">
+      <div class="tour__video">
+        <video src="img/video/tour.mp4" poster="img/video/tour-poster.jpg" muted loop playsinline preload="none" width="576" height="1024" data-tour aria-label="Tour em vídeo pela King Eventos ao entardecer"></video>
+        <button class="tour__play" type="button" data-tour-btn aria-label="Pausar vídeo">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-pause" d="M7 5h4v14H7zM13 5h4v14h-4z"/><path class="i-play" d="M8 5v14l11-7z"/></svg>
+        </button>
       </div>
-      <ul class="azulejos">
-        <li class="azulejo">
-          <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 22c3 0 3 2 6.5 2S13 22 16 22s3 2 6.5 2S26 22 29 22M3 27c3 0 3 2 6.5 2S13 27 16 27s3 2 6.5 2S26 27 29 27M10 18V6a3 3 0 0 1 6 0M20 18V6a3 3 0 0 1 6 0M10 10h10M10 14h10"/></svg>
-          <h3>Piscina adulto e infantil</h3>
-          <p>Com área rasa para as crianças.</p>
-        </li>
-        <li class="azulejo">
-          <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 14h24M6 14l2 14h16l2-14M10 10c0-2 2-2 2-4M16 10c0-2 2-2 2-4M22 10c0-2 2-2 2-4M12 20h8"/></svg>
-          <h3>Churrasqueira e área gourmet</h3>
-          <p>Pia, bancada e geladeira.</p>
-        </li>
-        <li class="azulejo">
-          <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 14 16 5l13 9M6 12v15h20V12M12 27v-8h8v8"/></svg>
-          <h3>Salão coberto</h3>
-          <p>Mesas e cadeiras para os convidados.</p>
-        </li>
-        <li class="azulejo">
-          <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M8 4v24M8 6h14l-3 5 3 5H8M4 28h24"/></svg>
-          <h3>Gramado e área kids</h3>
-          <p>Espaço livre para as crianças brincarem.</p>
-        </li>
-        <li class="azulejo">
-          <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M10 4v8M22 4v8M7 12h18v4a9 9 0 0 1-18 0zM16 25v4"/></svg>
-          <h3>Banheiros e vestiários</h3>
-          <p>Masculino e feminino, com chuveiro.</p>
-        </li>
-        <li class="azulejo">
-          <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 20l3-8h16l3 8v5H5zM5 20h22M9 25v3M23 25v3M10 20a1 1 0 1 0 0 .1M22 20a1 1 0 1 0 0 .1"/></svg>
-          <h3>Estacionamento</h3>
-          <p>Vagas dentro do espaço.</p>
-        </li>
-        <li class="azulejo">
-          <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M8 4h16v24H8zM16 22a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM16 10a1 1 0 1 0 0-.1"/></svg>
-          <h3>Som ambiente</h3>
-          <p>Conecte seu celular e solte a playlist.</p>
-        </li>
-        <li class="azulejo">
-          <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 12a17 17 0 0 1 24 0M8 16.5a11 11 0 0 1 16 0M12 21a5 5 0 0 1 8 0M16 25.5v.1"/></svg>
-          <h3>Wi-Fi</h3>
-          <p>Internet liberada para os convidados.</p>
-        </li>
-      </ul>
+      <div class="tour__texto">
+        <h2 class="titulo">Chegue com a gente</h2>
+        <p>Vinte segundos do portão ao salão, gravados no fim de tarde, quando o letreiro já está aceso.</p>
+        <ol class="tour__roteiro">
+          <li>Portão com o letreiro de LED</li>
+          <li>Piscina aquecida e o mural da King</li>
+          <li>Fachada iluminada do salão</li>
+          <li>Salão amplo por dentro</li>
+        </ol>
+        <a class="link" href="https://www.instagram.com/kingeventos014/" target="_blank" rel="noopener">Mais vídeos no Instagram @kingeventos014</a>
+      </div>
     </section>
 
     <!-- OCASIÕES -->
     <section class="secao ocasioes">
-      <h2 class="titulo">Para que o pessoal aluga</h2>
+      <h2 class="titulo">Para todo tipo de comemoração</h2>
       <div class="ocasioes__lista">
         <article>
           <h3>Aniversários</h3>
-          <p>Do primeiro aninho aos 60. Piscina para a criançada e sombra para os avós.</p>
+          <p>Playground e piscina para as crianças, salão confortável para os adultos.</p>
+        </article>
+        <article>
+          <h3>Natal e Ano Novo</h3>
+          <p>A família toda reunida, com piscina aquecida e espaço de sobra.</p>
         </article>
         <article>
           <h3>Confraternizações</h3>
-          <p>Fim de ano da empresa, time de futebol, turma da faculdade.</p>
+          <p>Fim de ano da empresa, time de futebol, turma da escola.</p>
         </article>
         <article>
-          <h3>Chá revelação e chá de bebê</h3>
-          <p>Gramado para a decoração e salão coberto caso o tempo vire.</p>
-        </article>
-        <article>
-          <h3>Domingo em família</h3>
-          <p>Sem motivo nenhum. Só piscina, carne na brasa e todo mundo junto.</p>
+          <h3>Fim de semana em família</h3>
+          <p>Sem motivo nenhum. Só churrasco, sinuca e todo mundo junto.</p>
         </article>
       </div>
     </section>
 
-    <!-- VALORES -->
-    <section class="secao valores" id="valores">
+    <!-- DATAS ESPECIAIS -->
+    <section class="secao datas" id="datas">
       <div class="cabeca">
-        <h2 class="titulo">Quanto custa</h2>
-        <p>Valores para o espaço inteiro, não por pessoa. Feriados e datas comemorativas podem ter valor diferente.</p>
+        <h2 class="titulo">Datas de fim de ano</h2>
+        <p>As datas especiais são as primeiras a fechar. Veja como está a agenda.</p>
       </div>
-      <div class="planos">
-        <article class="plano">
-          <h3>Dia de semana</h3>
-          <p class="plano__preco"><small>a partir de</small> R$ 000</p>
-          <p class="plano__det">Segunda a sexta, das 9h às 18h.</p>
-        </article>
-        <article class="plano plano--destaque">
-          <h3>Sábado ou domingo</h3>
-          <p class="plano__preco"><small>a partir de</small> R$ 000</p>
-          <p class="plano__det">Das 9h às 20h. A data mais procurada, reserve com antecedência.</p>
-        </article>
-        <article class="plano">
-          <h3>Fim de semana inteiro</h3>
-          <p class="plano__preco"><small>a partir de</small> R$ 000</p>
-          <p class="plano__det">Sábado e domingo, com pernoite.</p>
-        </article>
-      </div>
-      <p class="valores__nota">Limpeza depois do evento já está inclusa. <a href="#" data-wa="Olá! Quero um orçamento para a King Eventos. Data: __ / Convidados: __">Pedir orçamento para a minha data</a></p>
+      <ul class="agenda">
+        <li class="agenda__item agenda__item--livre">
+          <span class="agenda__data">24 e 25 de dezembro</span>
+          <span class="agenda__nome">Natal</span>
+          <span class="agenda__status">Disponível</span>
+          <a class="btn btn--ouro btn--p" href="#" data-wa="Olá! Quero reservar a King Eventos para o Natal.">Reservar o Natal</a>
+        </li>
+        <li class="agenda__item agenda__item--fechado">
+          <span class="agenda__data">31 de dezembro</span>
+          <span class="agenda__nome">Ano Novo</span>
+          <span class="agenda__status">Já está alugado</span>
+          <span class="agenda__obs">Obrigado a todos pela confiança!</span>
+        </li>
+      </ul>
     </section>
 
-    <!-- COMO RESERVAR: é de fato uma sequência -->
+    <!-- COMO RESERVAR (sequência real) -->
     <section class="secao reservar" id="reservar">
       <h2 class="titulo">Como reservar</h2>
       <ol class="passos">
@@ -218,11 +211,11 @@
         </li>
         <li>
           <h3>Garanta com o sinal</h3>
-          <p>Um sinal via Pix bloqueia a data para você. O restante é pago até o dia do evento.</p>
+          <p>Um sinal bloqueia a data para você. O restante é pago até o dia do evento.</p>
         </li>
         <li>
-          <h3>Assine o contrato</h3>
-          <p>Enviamos o contrato com horários e regras do espaço, tudo por escrito.</p>
+          <h3>Receba as orientações</h3>
+          <p>Horários e regras do espaço combinados por escrito, sem surpresa.</p>
         </li>
         <li>
           <h3>Chegue e aproveite</h3>
@@ -235,15 +228,17 @@
     <section class="secao galeria" id="galeria">
       <div class="cabeca cabeca--linha">
         <h2 class="titulo">Fotos do espaço</h2>
-        <a class="link" href="https://instagram.com/SEUPERFIL" target="_blank" rel="noopener">Mais fotos no Instagram</a>
+        <a class="link" href="https://www.instagram.com/kingeventos014/" target="_blank" rel="noopener">Mais fotos no Instagram</a>
       </div>
-      <div class="grade-fotos">
-        <figure class="foto foto--larga" data-rotulo="Vista geral"><img src="img/galeria-1.jpg" alt="Vista geral da área de lazer" loading="lazy" width="1200" height="800"></figure>
-        <figure class="foto" data-rotulo="Piscina infantil"><img src="img/galeria-2.jpg" alt="Piscina infantil" loading="lazy" width="800" height="800"></figure>
-        <figure class="foto" data-rotulo="Churrasqueira"><img src="img/galeria-3.jpg" alt="Churrasqueira acesa" loading="lazy" width="800" height="800"></figure>
-        <figure class="foto" data-rotulo="Festa montada"><img src="img/galeria-4.jpg" alt="Salão decorado para aniversário" loading="lazy" width="800" height="800"></figure>
-        <figure class="foto" data-rotulo="Gramado"><img src="img/galeria-5.jpg" alt="Gramado e área kids" loading="lazy" width="800" height="800"></figure>
-        <figure class="foto foto--larga" data-rotulo="Fim de tarde"><img src="img/galeria-6.jpg" alt="Piscina ao entardecer" loading="lazy" width="1200" height="800"></figure>
+      <div class="grade-fotos" data-galeria>
+        <button class="foto g-larga" type="button"><img src="img/fotos/corredor.webp" alt="Corredor de acesso ao lado da piscina até o salão" loading="lazy" width="1200" height="1120"></button>
+        <button class="foto" type="button"><img src="img/fotos/sinuca.webp" alt="Mesa de sinuca com o logo da King Eventos" loading="lazy" width="1200" height="1152"></button>
+        <button class="foto g-alta" type="button"><img src="img/fotos/piscina-noite.webp" alt="Piscina com iluminação azul à noite" loading="lazy" width="840" height="1040"></button>
+        <button class="foto" type="button"><img src="img/fotos/salao.webp" alt="Salão amplo com TV 75 polegadas" loading="lazy" width="1200" height="960"></button>
+        <button class="foto" type="button"><img src="img/fotos/playground.webp" alt="Playground com escorregador, balanço e gira-gira no gramado" loading="lazy" width="1200" height="832"></button>
+        <button class="foto" type="button"><img src="img/fotos/piscina-deck.webp" alt="Piscina com deck de madeira" loading="lazy" width="900" height="1168"></button>
+        <button class="foto" type="button"><img src="img/fotos/campinho.webp" alt="Gramado com campinho de futebol" loading="lazy" width="900" height="1056"></button>
+        <button class="foto g-larga" type="button"><img src="img/fotos/piscina-fachada.webp" alt="Piscina com a fachada do salão ao fundo" loading="lazy" width="900" height="832"></button>
       </div>
     </section>
 
@@ -252,42 +247,41 @@
       <h2 class="titulo">Dúvidas frequentes</h2>
       <div class="faq">
         <details>
+          <summary>A piscina é aquecida mesmo?</summary>
+          <p>Sim. A piscina é aquecida, então dá para aproveitar também nos dias mais frescos.</p>
+        </details>
+        <details>
           <summary>Posso levar minha comida e bebida?</summary>
-          <p>Pode. Você traz comida, bebida e, se quiser, contrata seu próprio buffet, decoração ou DJ.</p>
+          <p>Pode. Você traz comida e bebida e usa a churrasqueira e a cozinha do salão. Também pode contratar seu próprio buffet ou decoração.</p>
         </details>
         <details>
           <summary>Qual o horário de uso?</summary>
-          <p>Nos fins de semana, das 9h às 20h. O horário exato fica no contrato e pode ser ajustado conforme a data.</p>
-        </details>
-        <details>
-          <summary>Pode som alto?</summary>
-          <p>Pode som ambiente durante o dia. Por respeito à vizinhança, o volume é reduzido a partir das 22h.</p>
+          <p>O horário é combinado na reserva, conforme a data e o tipo de evento.</p>
         </details>
         <details>
           <summary>Quantas pessoas cabem?</summary>
-          <p>Até 100 convidados com conforto. Para grupos maiores, fale com a gente antes.</p>
+          <p>Fale com a gente informando o número de convidados que confirmamos se o espaço atende.</p>
         </details>
         <details>
           <summary>E se chover?</summary>
-          <p>O salão coberto comporta todos os convidados, então a festa continua.</p>
-        </details>
-        <details>
-          <summary>Como funciona o pagamento?</summary>
-          <p>Sinal via Pix para garantir a data e o restante até o dia do evento.</p>
+          <p>O salão é coberto e envidraçado, então a festa continua com vista para a piscina.</p>
         </details>
       </div>
     </section>
 
-    <!-- LOCALIZAÇÃO -->
-    <section class="secao local" id="local">
+    <!-- CONTATO / LOCAL -->
+    <section class="secao local" id="contato">
       <div class="local__texto">
         <h2 class="titulo">Como chegar</h2>
         <address>
           Rua Exemplo, 123, Bairro<br>
-          Sua Cidade – SP, 00000-000
+          Sua Cidade – SP
         </address>
-        <p>Envie este endereço para os convidados ou mande o link da rota direto no grupo da festa.</p>
-        <a class="btn btn--rei" href="https://maps.google.com/?q=King+Eventos" target="_blank" rel="noopener">Abrir rota no Google Maps</a>
+        <p>Envie o endereço para os convidados ou mande a rota direto no grupo da festa.</p>
+        <div class="local__acoes">
+          <a class="btn btn--ouro" href="https://maps.google.com/?q=King+Eventos" target="_blank" rel="noopener">Abrir rota no Google Maps</a>
+          <a class="btn btn--linha" href="#" data-wa="Olá! Vim pelo site da King Eventos.">(14) 99814-0623</a>
+        </div>
       </div>
       <div class="local__mapa">
         <!-- Troque o src pelo link de incorporação do Google Maps (Compartilhar > Incorporar um mapa) -->
@@ -297,11 +291,12 @@
 
     <!-- CHAMADA FINAL -->
     <section class="final">
-      <div class="hero__agua" aria-hidden="true"></div>
+      <img class="final__foto" src="img/fotos/sinuca.webp" alt="" loading="lazy" width="1200" height="1152">
       <div class="final__in">
+        <svg class="final__coroa" viewBox="0 0 64 44" aria-hidden="true"><use href="#coroa"/></svg>
         <h2>Qual vai ser a sua data?</h2>
-        <p>Os fins de semana costumam fechar com semanas de antecedência.</p>
-        <a class="btn btn--sol" href="#" data-wa="Olá! Vim pelo site e quero saber as datas disponíveis na King Eventos.">Ver datas no WhatsApp</a>
+        <p>Chame no WhatsApp e veja na hora se o seu dia está livre.</p>
+        <a class="btn btn--ouro" href="#" data-wa="Olá! Vim pelo site e quero saber as datas disponíveis na King Eventos.">Consultar datas no WhatsApp</a>
       </div>
     </section>
   </main>
@@ -309,33 +304,44 @@
   <footer class="rodape">
     <div class="rodape__in">
       <div>
-        <a class="marca marca--clara" href="#inicio">
+        <a class="marca" href="#inicio">
           <svg class="marca__coroa" viewBox="0 0 64 44" aria-hidden="true"><use href="#coroa"/></svg>
-          <span>King Eventos</span>
+          <span class="marca__nome">King<small>eventos</small></span>
         </a>
-        <p>Área de lazer para festas e day use em Sua Cidade – SP.</p>
+        <p class="rodape__slogan">Aqui, seus melhores momentos acontecem!</p>
       </div>
       <ul class="rodape__contato">
-        <li><a href="#" data-wa="Olá! Vim pelo site da King Eventos.">WhatsApp (00) 00000-0000</a></li>
-        <li><a href="https://instagram.com/SEUPERFIL" target="_blank" rel="noopener">Instagram @SEUPERFIL</a></li>
+        <li><a href="#" data-wa="Olá! Vim pelo site da King Eventos.">WhatsApp (14) 99814-0623</a></li>
+        <li><a href="https://www.instagram.com/kingeventos014/" target="_blank" rel="noopener">Instagram @kingeventos014</a></li>
         <li>Rua Exemplo, 123, Sua Cidade – SP</li>
       </ul>
     </div>
     <p class="rodape__copy">© <span data-ano>2026</span> King Eventos. Todos os direitos reservados.</p>
   </footer>
 
-  <!-- Botão flutuante de WhatsApp (celular) -->
   <a class="wa-flutuante" href="#" data-wa="Olá! Vim pelo site e quero saber as datas disponíveis na King Eventos." aria-label="Conversar no WhatsApp">
     <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 23.6c-2 0-4-.6-5.7-1.6l-.4-.2-3.9 1 1-3.8-.3-.4A10.6 10.6 0 1 1 16 26.6zm5.8-7.9c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7 0a8.7 8.7 0 0 1-4.3-3.8c-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.7 3.7 0 0 0-1.1 2.7 6.5 6.5 0 0 0 1.3 3.4 14.8 14.8 0 0 0 5.7 5c2.1.9 2.9 1 4 .8a3.4 3.4 0 0 0 2.2-1.6 2.8 2.8 0 0 0 .2-1.6c-.1-.2-.3-.3-.6-.4z"/></svg>
   </a>
 
-  <!-- Símbolo da coroa, reutilizado em todo o site -->
+  <!-- Visualizador de fotos -->
+  <dialog class="visor" data-visor aria-label="Foto ampliada">
+    <img src="" alt="" data-visor-img>
+    <button class="visor__fechar" type="button" data-visor-fechar aria-label="Fechar foto">×</button>
+    <button class="visor__nav visor__nav--ant" type="button" data-visor-ant aria-label="Foto anterior">‹</button>
+    <button class="visor__nav visor__nav--prox" type="button" data-visor-prox aria-label="Próxima foto">›</button>
+  </dialog>
+
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="ouro" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#F7DE8B"/><stop offset=".55" stop-color="#D4A73C"/><stop offset="1" stop-color="#9A7224"/>
+      </linearGradient>
+    </defs>
     <symbol id="coroa" viewBox="0 0 64 44">
-      <path d="M4 12l14 12L32 2l14 22 14-12-6 28H10z" fill="currentColor"/>
-      <circle cx="4" cy="10" r="4" fill="currentColor"/>
-      <circle cx="32" cy="4" r="4" fill="currentColor"/>
-      <circle cx="60" cy="10" r="4" fill="currentColor"/>
+      <path d="M4 12l14 12L32 2l14 22 14-12-6 28H10z" fill="url(#ouro)"/>
+      <circle cx="4" cy="10" r="4" fill="url(#ouro)"/>
+      <circle cx="32" cy="4" r="4" fill="url(#ouro)"/>
+      <circle cx="60" cy="10" r="4" fill="url(#ouro)"/>
     </symbol>
   </svg>
 
