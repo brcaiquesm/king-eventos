@@ -296,7 +296,7 @@ a { color: inherit; }
 .final__foto { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; opacity: .35; }
 .final::after { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(ellipse at center, rgba(0,0,0,.35), #000 75%); }
 .final__in { max-width: 40rem; margin: 0 auto; padding: clamp(5rem, 12vw, 8rem) var(--pad); }
-.final__coroa { width: 4rem; height: auto; margin: 0 auto 1rem; }
+.final__coroa { display: block; width: 6rem; height: auto; margin: 0 auto 1rem; }
 .final h2 { font-family: var(--display); font-weight: 800; font-size: clamp(2.4rem, 6vw, 4.2rem); line-height: 1.05; margin-bottom: 1rem; }
 .final p { color: var(--marfim); font-size: var(--t-1); margin-bottom: 2rem; }
 
@@ -361,8 +361,8 @@ a { color: inherit; }
 }
 
 /* Logo com LED atrás das letras (como o letreiro da fachada), acende ao passar o mouse */
-.hero__logo, .marca__logo { transition: filter .3s ease; }
-.hero__logo:hover {
+.hero__logo, .marca__logo, .final__coroa { transition: filter .3s ease; }
+.hero__logo:hover, .final__coroa:hover {
   filter:
     brightness(1.06)
     drop-shadow(0 0 1px rgba(255, 244, 210, .8))
