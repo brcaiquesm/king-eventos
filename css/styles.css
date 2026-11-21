@@ -361,7 +361,7 @@ a { color: inherit; }
 }
 
 /* Logo com LED atrás das letras (como o letreiro da fachada), acende ao passar o mouse */
-.hero__logo, .marca__logo { transition: filter .25s ease; }
+.hero__logo, .marca__logo { transition: filter .3s ease; }
 .hero__logo:hover {
   filter:
     brightness(1.06)
@@ -370,14 +370,6 @@ a { color: inherit; }
     drop-shadow(0 0 15px rgba(255, 196, 90, .55))
     drop-shadow(0 0 36px rgba(255, 170, 60, .35))
     drop-shadow(0 0 70px rgba(255, 150, 40, .18));
-  animation: led-liga .7s steps(1, end) both;
-}
-@keyframes led-liga {
-  0%   { opacity: .75; }
-  12%  { opacity: 1; }
-  20%  { opacity: .8; }
-  30%  { opacity: 1; }
-  100% { opacity: 1; }
 }
 .marca:hover .marca__logo, .marca:focus-visible .marca__logo {
   filter:
