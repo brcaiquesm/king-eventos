@@ -300,6 +300,36 @@ a { color: inherit; }
 .final h2 { font-family: var(--display); font-weight: 800; font-size: clamp(2.4rem, 6vw, 4.2rem); line-height: 1.05; margin-bottom: 1rem; }
 .final p { color: var(--marfim); font-size: var(--t-1); margin-bottom: 2rem; }
 
+/* Calendário da chamada final */
+.cal {
+  max-width: 22rem; margin: 0 auto 1.75rem; padding: 1.1rem 1.1rem 1rem;
+  background: rgba(10,9,7,.82); border: 1px solid var(--ouro-escuro); border-radius: 6px;
+  backdrop-filter: blur(6px);
+}
+.cal__topo { display: flex; align-items: center; justify-content: space-between; margin-bottom: .6rem; }
+.cal__mes { margin: 0; font-family: var(--display); font-weight: 700; font-size: 1.15rem; color: var(--ouro-claro); }
+.cal__nav {
+  width: 2.5rem; height: 2.5rem; border-radius: 50%; cursor: pointer; font-size: 1.4rem; line-height: 1;
+  background: none; border: 1px solid var(--linha); color: var(--ouro-claro);
+}
+.cal__nav:hover:not(:disabled) { border-color: var(--ouro); }
+.cal__nav:disabled { opacity: .3; cursor: default; }
+.cal__semana, .cal__dias { display: grid; grid-template-columns: repeat(7, 1fr); gap: .2rem; }
+.cal__semana span { font-size: .75rem; font-weight: 700; color: var(--cinza); padding: .2rem 0; }
+.cal__dia {
+  aspect-ratio: 1; min-height: 2.4rem; border-radius: 50%; border: 1px solid transparent; cursor: pointer;
+  background: none; color: var(--marfim); font: inherit; font-size: .9rem; font-weight: 600;
+  display: grid; place-items: center; position: relative;
+}
+.cal__dia:hover:not(:disabled) { border-color: var(--ouro-escuro); }
+.cal__dia:disabled { color: #4A4538; cursor: default; }
+.cal__dia--hoje { border-color: var(--linha); }
+.cal__dia--fim:not(:disabled) { color: var(--ouro-claro); }
+.cal__dia--ocupado { text-decoration: line-through; }
+.cal__dia[aria-pressed="true"] { background: var(--dourado); color: #1A1305; border-color: #E6C068; }
+.cal__escolha { margin: .8rem 0 0; font-size: .9rem; color: var(--cinza); }
+.cal__escolha strong { color: var(--ouro-claro); }
+
 /* Rodapé */
 .rodape { background: var(--carvao); border-top: 1px solid var(--linha); color: var(--cinza); }
 .rodape__in { max-width: var(--max); margin: 0 auto; padding: 3.5rem var(--pad) 2rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem; }
