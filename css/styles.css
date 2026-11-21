@@ -46,7 +46,7 @@ a { color: inherit; }
 .skip:focus { top: 1rem; }
 
 /* texto dourado metálico */
-.ouro-txt, .hero__marca, .final h2 {
+.ouro-txt, .final h2 {
   background: var(--dourado);
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
@@ -78,15 +78,8 @@ a { color: inherit; }
    Marca e topo
    ========================================================= */
 .marca { display: inline-flex; align-items: center; gap: .65rem; text-decoration: none; }
-.marca__coroa { width: 2.6rem; height: auto; }
-.marca__nome {
-  font-family: var(--display); font-weight: 800; font-size: 1.55rem; line-height: .9;
-  text-transform: uppercase; letter-spacing: .04em;
-  background: var(--dourado); -webkit-background-clip: text; background-clip: text; color: transparent;
-}
-.marca__nome small {
-  display: block; font-size: .5em; letter-spacing: .42em; font-weight: 700; margin-top: .2em;
-}
+.marca__logo { width: 6.25rem; height: auto; display: block; }
+.rodape .marca__logo { width: 9rem; }
 
 .topo { position: fixed; inset: 0 0 auto; z-index: 50; transition: background-color .25s ease, border-color .25s ease; border-bottom: 1px solid transparent; }
 .topo.is-rolado { background: rgba(0,0,0,.88); backdrop-filter: blur(10px); border-color: var(--linha); }
@@ -145,19 +138,12 @@ a { color: inherit; }
   padding: 7rem var(--pad) 5rem;
 }
 .hero__in > * { max-width: 34rem; }
-.hero__coroa { width: clamp(4.5rem, 8vw, 6.5rem); height: auto; margin: 0 0 -.4rem .4rem; }
-.hero__marca {
-  font-family: var(--display); font-weight: 800; text-transform: uppercase;
-  font-size: clamp(5.5rem, 15vw, 12rem); line-height: .85; letter-spacing: .02em;
-  margin: 0 0 1.75rem;
-  filter: drop-shadow(0 2px 0 rgba(0,0,0,.6));
-  animation: brilho 1.6s ease-out .2s both;
-  background-size: 100% 220%; background-position: 0 100%;
+.hero__logo {
+  display: block; width: clamp(17rem, 34vw, 30rem); height: auto; margin: 0 0 1.75rem -.4rem;
+  filter: drop-shadow(0 4px 18px rgba(0,0,0,.8));
+  animation: brilho 1.4s ease-out .15s both;
 }
-@keyframes brilho {
-  from { opacity: 0; transform: translateY(12px); background-position: 0 0; }
-  to   { opacity: 1; transform: none; background-position: 0 100%; }
-}
+@keyframes brilho { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
 .hero__titulo {
   font-family: var(--display); font-weight: 700;
   font-size: clamp(1.6rem, 2.6vw, 2.15rem); line-height: 1.2; color: var(--marfim);
@@ -354,7 +340,7 @@ a { color: inherit; }
   .hero__foto img { object-position: 56% 50%; }
   .hero__foto::after { background: linear-gradient(0deg, #000 0%, rgba(0,0,0,.2) 45%, rgba(0,0,0,.35) 100%); }
   .hero__in { padding-top: 40svh; padding-bottom: 3rem; }
-  .hero__marca { margin-bottom: 1.25rem; }
+  .hero__logo { width: min(80vw, 20rem); margin-bottom: 1.25rem; }
 }
 @media (max-width: 640px) {
   .faixa { grid-template-columns: 1fr 1fr; }
