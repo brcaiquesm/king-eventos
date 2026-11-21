@@ -359,3 +359,14 @@ a { color: inherit; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* Brilho dourado no logo ao passar o mouse */
+.hero__logo, .marca__logo { transition: filter .35s ease; }
+.hero__logo:hover {
+  filter: drop-shadow(0 4px 18px rgba(0,0,0,.8))
+          drop-shadow(0 0 14px rgba(255, 210, 110, .55))
+          drop-shadow(0 0 36px rgba(212, 167, 60, .45));
+}
+.marca:hover .marca__logo, .marca:focus-visible .marca__logo {
+  filter: drop-shadow(0 0 6px rgba(255, 210, 110, .6)) drop-shadow(0 0 16px rgba(212, 167, 60, .4));
+}
