@@ -23,7 +23,11 @@ document.querySelectorAll(".foto img").forEach((img) => {
 
 // Topo muda de cor ao rolar
 const topo = document.querySelector("[data-topo]");
-const aoRolar = () => topo.classList.toggle("is-rolado", window.scrollY > 40);
+const waFlut = document.querySelector(".wa-flutuante");
+const aoRolar = () => {
+  topo.classList.toggle("is-rolado", window.scrollY > 40);
+  waFlut.classList.toggle("is-visivel", window.scrollY > window.innerHeight * 0.7);
+};
 aoRolar();
 window.addEventListener("scroll", aoRolar, { passive: true });
 
