@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="img/fotos/hero-noite.webp">
+  <link rel="preload" as="image" href="img/fotos/hero-noite.webp" media="(min-width: 901px)">
   <link rel="stylesheet" href="css/styles.css">
 
   <script type="application/ld+json">
@@ -48,7 +48,8 @@
   <header class="topo" data-topo>
     <div class="topo__in">
       <a class="marca" href="#inicio" aria-label="King Eventos, voltar ao início">
-        <svg class="marca__logo" viewBox="0 0 520 300" aria-hidden="true"><use href="#logo"/></svg>
+        <svg class="marca__coroa" viewBox="0 0 200 112" aria-hidden="true"><use href="#coroa"/></svg>
+        <span class="marca__nome">King<small>eventos</small></span>
       </a>
 
       <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" data-menu-btn>
@@ -72,18 +73,17 @@
 
     <!-- HERO -->
     <section class="hero" id="inicio">
-      <div class="hero__foto">
+      <picture class="hero__foto">
         <img src="img/fotos/hero-noite.webp" alt="King Eventos à noite: piscina iluminada, mural com a coroa e o salão com o letreiro dourado aceso" width="1520" height="704" fetchpriority="high">
-      </div>
+      </picture>
       <div class="hero__in">
-        <svg class="hero__logo" viewBox="0 0 520 300" role="img" aria-label="King Eventos"><use href="#logo"/></svg>
-        <div class="hero__texto">
-          <h1 class="hero__titulo">Aqui, seus melhores momentos acontecem.</h1>
-          <p class="hero__sub">Piscina aquecida, campinho, playground, sinuca e salão completo. O espaço inteiro fica só para você e seus convidados.</p>
-          <div class="hero__acoes">
-            <a class="btn btn--ouro" href="#" data-wa="Olá! Vim pelo site e quero saber as datas disponíveis na King Eventos.">Consultar datas no WhatsApp</a>
-            <a class="btn btn--linha" href="#tour">Ver o tour em vídeo</a>
-          </div>
+        <svg class="hero__coroa" viewBox="0 0 200 112" aria-hidden="true"><use href="#coroa"/></svg>
+        <p class="hero__marca" aria-hidden="true">King</p>
+        <h1 class="hero__titulo">Aqui, seus melhores momentos acontecem.</h1>
+        <p class="hero__sub">Área de lazer com piscina aquecida, campinho, playground, sinuca e salão completo. O espaço inteiro fica só para você e seus convidados.</p>
+        <div class="hero__acoes">
+          <a class="btn btn--ouro" href="#" data-wa="Olá! Vim pelo site e quero saber as datas disponíveis na King Eventos.">Consultar datas no WhatsApp</a>
+          <a class="btn btn--linha" href="#tour">Ver o tour em vídeo</a>
         </div>
       </div>
     </section>
@@ -300,8 +300,9 @@
   <footer class="rodape">
     <div class="rodape__in">
       <div>
-        <a class="marca" href="#inicio" aria-label="King Eventos">
-          <svg class="marca__logo" viewBox="0 0 520 300" aria-hidden="true"><use href="#logo"/></svg>
+        <a class="marca" href="#inicio">
+          <svg class="marca__coroa" viewBox="0 0 200 112" aria-hidden="true"><use href="#coroa"/></svg>
+          <span class="marca__nome">King<small>eventos</small></span>
         </a>
         <p class="rodape__slogan">Aqui, seus melhores momentos acontecem!</p>
       </div>
