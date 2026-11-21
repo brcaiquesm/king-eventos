@@ -59,6 +59,5 @@ Cada `git push` na branch `main` publica uma nova versão automaticamente.
 ## Antes de publicar, trocar
 
 - [ ] `SEUDOMINIO.com.br` em `index.html`, `robots.txt` e `sitemap.xml`
-- [ ] Cidade, endereço e mapa (`index.html`)
 - [ ] Respostas das dúvidas frequentes e passos de reserva
 - [ ] Status das datas especiais (seção `#datas`)
