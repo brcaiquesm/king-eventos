@@ -360,13 +360,29 @@ a { color: inherit; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
 
-/* Brilho dourado no logo ao passar o mouse */
-.hero__logo, .marca__logo { transition: filter .35s ease; }
+/* Logo com LED atrás das letras (como o letreiro da fachada), acende ao passar o mouse */
+.hero__logo, .marca__logo { transition: filter .25s ease; }
 .hero__logo:hover {
-  filter: drop-shadow(0 4px 18px rgba(0,0,0,.8))
-          drop-shadow(0 0 14px rgba(255, 210, 110, .55))
-          drop-shadow(0 0 36px rgba(212, 167, 60, .45));
+  filter:
+    brightness(1.12)
+    drop-shadow(0 0 1.5px #FFF4D2)
+    drop-shadow(0 0 6px rgba(255, 226, 150, .95))
+    drop-shadow(0 0 18px rgba(255, 196, 90, .85))
+    drop-shadow(0 0 42px rgba(255, 170, 60, .6))
+    drop-shadow(0 0 80px rgba(255, 150, 40, .35));
+  animation: led-liga .7s steps(1, end) both;
+}
+@keyframes led-liga {
+  0%   { opacity: .75; }
+  12%  { opacity: 1; }
+  20%  { opacity: .8; }
+  30%  { opacity: 1; }
+  100% { opacity: 1; }
 }
 .marca:hover .marca__logo, .marca:focus-visible .marca__logo {
-  filter: drop-shadow(0 0 6px rgba(255, 210, 110, .6)) drop-shadow(0 0 16px rgba(212, 167, 60, .4));
+  filter:
+    brightness(1.1)
+    drop-shadow(0 0 1px #FFF4D2)
+    drop-shadow(0 0 4px rgba(255, 220, 140, .9))
+    drop-shadow(0 0 12px rgba(255, 180, 70, .6));
 }
