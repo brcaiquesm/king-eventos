@@ -35,14 +35,36 @@ HTML, CSS e JavaScript puros, sem build. Responsivo, com foco de teclado visíve
 ├── js/main.js        ← número do WhatsApp (CONFIG)
 ├── img/fotos/        ← fotos tratadas (.webp)
 ├── img/video/        ← tour.mp4 + poster
+├── api/ocupadas.js  ← lê a agenda do Google
 ├── vercel.json
 ├── robots.txt
 └── sitemap.xml
 ```
 
+## Agenda de reservas (Google Agenda)
+
+Os dias já alugados aparecem riscados no calendário do site sozinhos. Eles vêm de uma agenda do Google, lida pela função `api/ocupadas.js` na Vercel (atualiza a cada ~5 minutos).
+
+**Configurar uma vez**
+
+1. No Google Agenda (computador), crie uma agenda nova: *Outras agendas → + → Criar nova agenda*, nome "King Eventos – Reservas".
+2. Abra *Configurações e compartilhamento* dessa agenda e copie o **Endereço secreto no formato iCal** (termina em `.ics`).
+3. Na Vercel: *Project → Settings → Environment Variables* → nome `GOOGLE_CALENDAR_ICS_URL`, valor = o endereço copiado. Salve e faça *Redeploy*.
+
+**No dia a dia**
+
+- Para bloquear uma data, crie um evento nessa agenda. Pode ser "dia inteiro" e pode durar vários dias.
+- Para liberar a data, apague o evento.
+- O nome do evento não aparece no site, só a data fica riscada.
+- Pode compartilhar a agenda com quem cuida das reservas (*Compartilhar com pessoas específicas → Fazer alterações nos eventos*).
+
+O endereço secreto não aparece no site. Ele fica só na Vercel.
+
 ## Rodar localmente
 
 ```bash
+npx vercel dev   # roda o site e a função da agenda
+# só o site, sem a agenda:
 npx serve .
 # ou
 python -m http.server 8000
@@ -61,3 +83,4 @@ Cada `git push` na branch `main` publica uma nova versão automaticamente.
 - [ ] `SEUDOMINIO.com.br` em `index.html`, `robots.txt` e `sitemap.xml`
 - [ ] Respostas das dúvidas frequentes e passos de reserva
 - [ ] Status das datas especiais (seção `#datas`)
+- [ ] Variável `GOOGLE_CALENDAR_ICS_URL` na Vercel

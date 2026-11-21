@@ -328,7 +328,7 @@ a { color: inherit; }
 .cal__dia:disabled { color: #4A4538; cursor: default; }
 .cal__dia--hoje span { border-color: var(--linha); }
 .cal__dia--fim:not(:disabled) { color: var(--ouro-claro); }
-.cal__dia--ocupado span { text-decoration: line-through; }
+.cal__dia--ocupado span { text-decoration: line-through; color: #8A826F; }
 /* faixa do período (como em reserva de hotel) */
 .cal__dia--meio, .cal__dia--ini, .cal__dia--fimp { background: rgba(212,167,60,.16); }
 .cal__dia--ini { background: linear-gradient(90deg, transparent 50%, rgba(212,167,60,.16) 50%); }
@@ -339,7 +339,9 @@ a { color: inherit; }
 .cal__dias > :nth-child(7n+1).cal__dia--fimp { background: none; }
 .cal__dias > :nth-child(7n).cal__dia--ini { background: none; }
 .cal__dia[aria-pressed="true"]:not(.cal__dia--meio) span { background: var(--dourado); color: #1A1305; border-color: #E6C068; }
-.cal__escolha { margin: .8rem 0 0; font-size: .9rem; color: var(--cinza); line-height: 1.45; }
+.cal__legenda { margin: .5rem 0 0; font-size: .8rem; color: var(--cinza); }
+.cal__legenda s { color: var(--marfim); margin-right: .25rem; }
+.cal__escolha { margin: .6rem 0 0; font-size: .9rem; color: var(--cinza); line-height: 1.45; }
 .cal__escolha strong { color: var(--ouro-claro); }
 .cal__escolha em { display: block; margin-top: .35rem; font-style: normal; color: #E8B86A; }
 .cal__limpar {

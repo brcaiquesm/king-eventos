@@ -5,7 +5,9 @@
 const CONFIG = {
   whatsapp: "5514998140623",
   // Datas já alugadas (ano-mês-dia). Aparecem riscadas no calendário.
+  // As da agenda do Google entram sozinhas (veja api/ocupadas.js). Estas aqui somam com elas.
   datasOcupadas: ["2026-12-31"],
+  agendaUrl: "/api/ocupadas",
 };
 
 // Links de WhatsApp com mensagem pronta (atributo data-wa)
@@ -168,6 +170,15 @@ visor.addEventListener("keydown", (e) => {
   antBtn.addEventListener("click", () => { vista = new Date(vista.getFullYear(), vista.getMonth() - 1, 1); desenhar(); });
   proxBtn.addEventListener("click", () => { vista = new Date(vista.getFullYear(), vista.getMonth() + 1, 1); desenhar(); });
   desenhar(); atualizarEscolha();
+
+  // Busca os dias reservados na agenda do Google e risca no calendário
+  fetch(CONFIG.agendaUrl, { headers: { Accept: "application/json" } })
+    .then((r) => (r.ok ? r.json() : { dias: [] }))
+    .then(({ dias = [] }) => {
+      CONFIG.datasOcupadas = [...new Set([...CONFIG.datasOcupadas, ...dias])];
+      desenhar(); atualizarEscolha();
+    })
+    .catch(() => {});
 }
 
 // Ano no rodapé

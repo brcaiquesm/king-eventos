@@ -1,0 +1,6 @@
+{
+  "name": "king-eventos",
+  "private": true,
+  "type": "module",
+  "description": "Site da King Eventos. Estático + uma função na Vercel que lê a agenda do Google."
+}
