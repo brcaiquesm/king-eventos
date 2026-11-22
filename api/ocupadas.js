@@ -67,10 +67,12 @@ export default async function handler(req, res) {
   try {
     const r = await fetch(url, { headers: { "User-Agent": "king-eventos-site" } });
     if (!r.ok) throw new Error(`Agenda respondeu ${r.status}`);
-    const dias = diasOcupados(await r.text());
+    const ics = await r.text();
+    const dias = diasOcupados(ics);
+    const eventos = (ics.match(/BEGIN:VEVENT/g) || []).length; // só a contagem, sem dados do evento
     // guarda por 5 minutos na Vercel: mudanças na agenda aparecem em até ~5 min
     res.setHeader("Cache-Control", "public, s-maxage=300, stale-while-revalidate=3600");
-    res.status(200).send(JSON.stringify({ dias }));
+    res.status(200).send(JSON.stringify({ dias, eventosNaAgenda: eventos }));
   } catch (e) {
     res.setHeader("Cache-Control", "public, s-maxage=60");
     res.status(200).send(JSON.stringify({ dias: [], erro: String(e.message || e) }));
