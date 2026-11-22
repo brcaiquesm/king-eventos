@@ -354,6 +354,7 @@ a { color: inherit; }
   margin: .9rem 0 0; padding-top: .8rem; border-top: 1px solid var(--linha);
   font-size: .8rem; line-height: 1.45; color: var(--cinza);
 }
+.cal__aviso strong { color: var(--ouro-claro); }
 
 /* Rodapé */
 .rodape { background: var(--carvao); border-top: 1px solid var(--linha); color: var(--cinza); }
