@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="img/fotos/hero-noite.webp" media="(min-width: 901px)">
-  <link rel="stylesheet" href="css/styles.css?v=5">
+  <link rel="stylesheet" href="css/styles.css?v=6">
 
   <script type="application/ld+json">
   {
@@ -369,7 +369,11 @@
           </div>
           <div class="cal__semana" aria-hidden="true"><span>D</span><span>S</span><span>T</span><span>Q</span><span>Q</span><span>S</span><span>S</span></div>
           <div class="cal__dias" data-cal-dias role="grid"></div>
-          <p class="cal__legenda" data-cal-legenda hidden>Dias riscados já estão reservados.</p>
+          <ul class="cal__legenda" data-cal-legenda hidden>
+            <li data-leg="ocupado"><span class="leg leg--ocupado" aria-hidden="true">00</span>Riscado: já reservado</li>
+            <li data-leg="especial"><span class="leg leg--especial" aria-hidden="true">00</span>Brilho: data especial, valor sob consulta</li>
+            <li data-leg="feriado"><span class="leg leg--feriado" aria-hidden="true">00</span>Ponto: feriado</li>
+          </ul>
           <p class="cal__escolha" data-cal-escolha></p>
           <div class="cal__valor" data-cal-valor hidden>
             <label class="cal__quartos">
@@ -451,6 +455,6 @@
     </symbol>
   </svg>
 
-  <script src="js/main.js?v=4" defer></script>
+  <script src="js/main.js?v=5" defer></script>
 </body>
 </html>

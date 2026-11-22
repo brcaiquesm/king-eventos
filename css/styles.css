@@ -329,6 +329,19 @@ a { color: inherit; }
 .cal__dia--hoje span { border-color: var(--linha); }
 .cal__dia--fim:not(:disabled) { color: var(--ouro-claro); }
 .cal__dia--ocupado span { text-decoration: line-through; color: #8A826F; }
+/* Feriados e datas especiais */
+.cal__dia--feriado:not(.cal__dia--especial):not(:disabled) span::after {
+  content: ""; position: absolute; bottom: 3px; left: 50%; width: 4px; height: 4px; margin-left: -2px;
+  border-radius: 50%; background: var(--ouro-claro); box-shadow: 0 0 6px var(--ouro);
+}
+.cal__dia--especial:not(:disabled) span {
+  color: #FFE7A3; font-weight: 800;
+  background: radial-gradient(circle, rgba(212,167,60,.28), transparent 72%);
+  text-shadow: 0 0 8px rgba(255,200,90,.8);
+  animation: brilho-dia 2.8s ease-in-out infinite;
+}
+@keyframes brilho-dia { 0%, 100% { box-shadow: 0 0 0 rgba(255,200,90,0); } 50% { box-shadow: 0 0 12px rgba(255,200,90,.45); } }
+.cal__dia--especial[aria-pressed="true"]:not(.cal__dia--meio) span { color: #1A1305; text-shadow: none; }
 /* faixa do período (como em reserva de hotel) */
 .cal__dia--meio, .cal__dia--ini, .cal__dia--fimp { background: rgba(212,167,60,.16); }
 .cal__dia--ini { background: linear-gradient(90deg, transparent 50%, rgba(212,167,60,.16) 50%); }
@@ -339,7 +352,13 @@ a { color: inherit; }
 .cal__dias > :nth-child(7n+1).cal__dia--fimp { background: none; }
 .cal__dias > :nth-child(7n).cal__dia--ini { background: none; }
 .cal__dia[aria-pressed="true"]:not(.cal__dia--meio) span { background: var(--dourado); color: #1A1305; border-color: #E6C068; }
-.cal__legenda { margin: .5rem 0 0; font-size: .8rem; color: var(--cinza); }
+.cal__legenda { list-style: none; margin: .6rem 0 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: .35rem 1rem; font-size: .78rem; color: var(--cinza); }
+.cal__legenda li { display: inline-flex; align-items: center; gap: .4rem; line-height: 1.2; }
+.cal__legenda li[hidden] { display: none; }
+.leg { position: relative; display: inline-grid; place-items: center; flex: none; width: 1rem; height: 1rem; font-size: .7rem; font-weight: 700; color: transparent; border-radius: 50%; }
+.leg--ocupado::before { content: ""; width: .85rem; height: 2px; background: var(--cinza); }
+.leg--especial { background: radial-gradient(circle, #FFE7A3 0 22%, rgba(212,167,60,.4) 45%, transparent 72%); box-shadow: 0 0 8px rgba(255,200,90,.5); }
+.leg--feriado::after { content: ""; position: absolute; top: 50%; left: 50%; width: 5px; height: 5px; margin: -2.5px 0 0 -2.5px; border-radius: 50%; background: var(--ouro-claro); box-shadow: 0 0 6px var(--ouro); }
 .cal__legenda[hidden] { display: none; }
 .cal__escolha { margin: .6rem 0 0; font-size: .9rem; color: var(--cinza); line-height: 1.45; }
 .cal__escolha strong { color: var(--ouro-claro); }

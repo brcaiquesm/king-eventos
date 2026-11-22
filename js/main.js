@@ -274,15 +274,23 @@ const Feriados = (() => {
     for (let d = 1; d <= total; d++) {
       const data = new Date(vista.getFullYear(), vista.getMonth(), d);
       const occ = ocupada(data);
+      const esp = especial(data), fer = Feriados.feriado(data);
+      const nomeDia = [fer, esp && esp !== `feriado prolongado (${fer})` ? esp : esp && "feriado prolongado"].filter(Boolean).join(" · ");
       const fds = [0, 6].includes(data.getDay());
       const ehInicio = inicio && +data === +inicio, ehFim = fim && +data === +fim;
       const meio = inicio && fim && data > inicio && data < fim;
       const cls = ["cal__dia", fds && "cal__dia--fim", occ && "cal__dia--ocupado", +data === +hoje && "cal__dia--hoje",
-        meio && "cal__dia--meio", ehInicio && fim && "cal__dia--ini", ehFim && "cal__dia--fimp"].filter(Boolean).join(" ");
-      html += `<button type="button" class="${cls}" data-dia="${iso(data)}" aria-pressed="${!!(ehInicio || ehFim || meio)}" aria-label="${longa.format(data)}${occ ? ", já reservado" : ""}" ${data < hoje ? "disabled" : ""}><span>${d}</span></button>`;
+        meio && "cal__dia--meio", ehInicio && fim && "cal__dia--ini", ehFim && "cal__dia--fimp",
+        esp && "cal__dia--especial", fer && "cal__dia--feriado"].filter(Boolean).join(" ");
+      const rotulo = `${longa.format(data)}${nomeDia ? ", " + nomeDia : ""}${esp ? ", valor sob consulta" : ""}${occ ? ", já reservado" : ""}`;
+      html += `<button type="button" class="${cls}" data-dia="${iso(data)}" aria-pressed="${!!(ehInicio || ehFim || meio)}" aria-label="${rotulo}"${nomeDia ? ` title="${nomeDia}${esp ? " (valor sob consulta)" : ""}"` : ""} ${data < hoje ? "disabled" : ""}><span>${d}</span></button>`;
     }
     diasEl.innerHTML = html;
-    legendaEl.hidden = !diasEl.querySelector(".cal__dia--ocupado");
+    const sel = { ocupado: ".cal__dia--ocupado", especial: ".cal__dia--especial", feriado: ".cal__dia--feriado:not(.cal__dia--especial)" };
+    const tem = (c) => !!diasEl.querySelector(`${sel[c]}:not(:disabled)`);
+    let algum = false;
+    for (const li of legendaEl.querySelectorAll("[data-leg]")) { li.hidden = !tem(li.dataset.leg); algum ||= !li.hidden; }
+    legendaEl.hidden = !algum;
   };
 
   diasEl.addEventListener("click", (e) => {
