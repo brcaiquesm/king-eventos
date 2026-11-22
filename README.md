@@ -41,6 +41,17 @@ HTML, CSS e JavaScript puros, sem build. Responsivo, com foco de teclado visíve
 └── sitemap.xml
 ```
 
+## Valores e cálculo no calendário
+
+Os preços ficam em `js/main.js`, no `CONFIG`:
+
+- `precos`: diária de segunda a quinta e de sexta/sábado/domingo/feriado, sem e com os 2 quartos.
+- `descontos`: 20% para 2 dias e 30% para 3 dias ou mais, sobre o valor total.
+- `periodosEspeciais`: semana do Natal e do Ano Novo, com valor sob consulta.
+- Feriados nacionais (incluindo Páscoa, Carnaval e Corpus Christi) são calculados sozinhos. Feriado comum custa como fim de semana; feriado prolongado fica como valor sob consulta.
+
+Ao mudar um preço, atualize também a seção `#valores` do `index.html`.
+
 ## Agenda de reservas (Google Agenda)
 
 Os dias já alugados aparecem riscados no calendário do site sozinhos. Eles vêm de uma agenda do Google, lida pela função `api/ocupadas.js` na Vercel (atualiza a cada ~5 minutos).

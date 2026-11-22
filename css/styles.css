@@ -357,6 +357,56 @@ a { color: inherit; }
 .cal__aviso strong { color: var(--ouro-claro); }
 .cal__aviso[hidden] { display: none; }
 
+
+/* Valores */
+.precos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.preco { border: 1px solid var(--linha); background: var(--carvao); border-radius: 2px; padding: 1.75rem; }
+.preco h3 { font-family: var(--display); font-size: 1.2rem; color: var(--marfim); margin-bottom: 1.1rem; min-height: 2.6em; }
+.preco dl { margin: 0; display: grid; gap: .75rem; }
+.preco dl div { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; border-bottom: 1px solid var(--linha); padding-bottom: .6rem; }
+.preco dt { color: var(--cinza); }
+.preco dd { margin: 0; font-family: var(--display); font-weight: 800; font-size: 1.6rem; color: var(--ouro-claro); white-space: nowrap; }
+.preco p { margin: .9rem 0 0; color: var(--cinza); font-size: .9rem; }
+.preco--destaque { border-color: var(--ouro-escuro); }
+.preco--desconto dd { background: var(--dourado); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.valores__sub { font-family: var(--display); font-size: 1.5rem; color: var(--ouro-claro); margin: 3rem 0 1rem; }
+.combos-wrap { overflow-x: auto; }
+.combos { width: 100%; border-collapse: collapse; min-width: 32rem; }
+.combos th, .combos td { padding: .95rem 1rem; text-align: left; border-bottom: 1px solid var(--linha); }
+.combos thead th { color: var(--cinza); font-weight: 600; font-size: .9rem; }
+.combos tbody th { font-weight: 600; }
+.combos td { font-family: var(--display); font-weight: 700; font-size: 1.15rem; color: var(--ouro-claro); white-space: nowrap; }
+.combos td s { font-family: var(--texto); font-weight: 400; font-size: .85rem; color: var(--cinza); margin-right: .4rem; }
+.valores__info { list-style: none; padding: 0; margin: 2.25rem 0 2rem; display: grid; gap: .7rem; max-width: 62rem; color: var(--cinza); }
+.valores__info strong { color: var(--marfim); }
+
+/* Valor no calendário */
+.cal__valor { margin-top: .9rem; padding-top: .9rem; border-top: 1px solid var(--linha); text-align: center; }
+.cal__valor[hidden] { display: none; }
+.cal__quartos { display: inline-flex; align-items: center; gap: .65rem; cursor: pointer; font-weight: 600; font-size: .95rem; min-height: 2.75rem; }
+.cal__quartos input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.cal__quartos small { display: block; font-weight: 500; color: var(--cinza); font-size: .78rem; text-align: left; }
+.cal__switch { position: relative; flex: none; width: 2.6rem; height: 1.5rem; border-radius: 1rem; background: #2B261D; border: 1px solid var(--ouro-escuro); transition: background-color .2s ease; }
+.cal__switch::after { content: ""; position: absolute; top: 2px; left: 2px; width: 1.1rem; height: 1.1rem; border-radius: 50%; background: var(--cinza); transition: transform .2s ease, background-color .2s ease; }
+.cal__quartos input:checked + .cal__switch { background: rgba(212,167,60,.35); }
+.cal__quartos input:checked + .cal__switch::after { transform: translateX(1.1rem); background: var(--ouro-claro); }
+.cal__quartos input:focus-visible + .cal__switch { outline: 2px solid var(--ouro-claro); outline-offset: 3px; }
+.cal__preco { margin-top: .6rem; }
+.cal__preco p { margin: 0; }
+.cal__de { font-size: .85rem; color: var(--cinza); }
+.cal__total { font-family: var(--display); font-weight: 800; font-size: 2.1rem; line-height: 1.15; background: var(--dourado); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.cal__total--consulta { font-size: 1.5rem; }
+.cal__economia { font-size: .85rem; font-weight: 700; color: var(--livre); }
+.cal__obs { font-size: .8rem; color: var(--cinza); margin-top: .2rem !important; }
+.cal__dica { margin: .8rem 0 0; padding: .65rem .8rem; border: 1px dashed var(--ouro-escuro); border-radius: 4px; font-size: .85rem; color: var(--marfim); line-height: 1.45; }
+.cal__dica strong { color: var(--ouro-claro); }
+.cal__dica[hidden] { display: none; }
+.cal__horario { margin: .8rem 0 0; font-size: .8rem; color: var(--cinza); line-height: 1.45; }
+.cal__horario strong { color: var(--marfim); font-weight: 600; }
+.cal__escolha em { display: block; margin-top: .35rem; font-style: normal; color: #E8B86A; }
+
+@media (max-width: 960px) { .precos { grid-template-columns: 1fr; } .preco h3 { min-height: 0; } }
+
 /* Rodapé */
 .rodape { background: var(--carvao); border-top: 1px solid var(--linha); color: var(--cinza); }
 .rodape__in { max-width: var(--max); margin: 0 auto; padding: 3.5rem var(--pad) 2rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem; }
