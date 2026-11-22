@@ -91,6 +91,7 @@ visor.addEventListener("keydown", (e) => {
   const escolhaEl = cal.querySelector("[data-cal-escolha]");
   const limparBtn = cal.querySelector("[data-cal-limpar]");
   const legendaEl = cal.querySelector("[data-cal-legenda]");
+  const avisoEl = cal.querySelector("[data-cal-aviso]");
   const antBtn = cal.querySelector("[data-cal-ant]");
   const proxBtn = cal.querySelector("[data-cal-prox]");
   const zap = document.querySelector("[data-cal-btn]");
@@ -115,6 +116,7 @@ visor.addEventListener("keydown", (e) => {
 
   const atualizarEscolha = () => {
     limparBtn.hidden = !inicio;
+    avisoEl.hidden = !inicio;
     if (!inicio) {
       escolhaEl.textContent = "Clique em um dia, ou no primeiro e no último dia do período.";
       zap.textContent = "Consultar datas no WhatsApp";
