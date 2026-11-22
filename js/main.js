@@ -4,9 +4,8 @@
    ========================================================= */
 const CONFIG = {
   whatsapp: "5514998140623",
-  // Datas já alugadas (ano-mês-dia). Aparecem riscadas no calendário.
-  // As da agenda do Google entram sozinhas (veja api/ocupadas.js). Estas aqui somam com elas.
-  datasOcupadas: ["2026-12-31"],
+  // Dias reservados: vêm da agenda do Google (veja api/ocupadas.js).
+  datasOcupadas: [],
   agendaUrl: "/api/ocupadas",
 };
 
@@ -91,6 +90,7 @@ visor.addEventListener("keydown", (e) => {
   const mesEl = cal.querySelector("[data-cal-mes]");
   const escolhaEl = cal.querySelector("[data-cal-escolha]");
   const limparBtn = cal.querySelector("[data-cal-limpar]");
+  const legendaEl = cal.querySelector("[data-cal-legenda]");
   const antBtn = cal.querySelector("[data-cal-ant]");
   const proxBtn = cal.querySelector("[data-cal-prox]");
   const zap = document.querySelector("[data-cal-btn]");
@@ -154,6 +154,7 @@ visor.addEventListener("keydown", (e) => {
       html += `<button type="button" class="${cls}" data-dia="${iso(data)}" aria-pressed="${!!(ehInicio || ehFim || meio)}" aria-label="${longa.format(data)}${ocupada ? ", já alugado" : ""}" ${passado ? "disabled" : ""}><span>${d}</span></button>`;
     }
     diasEl.innerHTML = html;
+    legendaEl.hidden = !diasEl.querySelector(".cal__dia--ocupado");
   };
 
   diasEl.addEventListener("click", (e) => {
