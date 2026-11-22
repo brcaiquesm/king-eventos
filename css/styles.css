@@ -350,6 +350,10 @@ a { color: inherit; }
 }
 .cal__limpar:hover { color: var(--ouro-claro); }
 .cal__limpar[hidden] { display: none; }
+.cal__aviso {
+  margin: .9rem 0 0; padding-top: .8rem; border-top: 1px solid var(--linha);
+  font-size: .8rem; line-height: 1.45; color: var(--cinza);
+}
 
 /* Rodapé */
 .rodape { background: var(--carvao); border-top: 1px solid var(--linha); color: var(--cinza); }
