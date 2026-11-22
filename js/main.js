@@ -100,7 +100,7 @@ visor.addEventListener("keydown", (e) => {
   if (e.key === "ArrowRight") mostrar(atual + 1);
 });
 
-// Feriados nacionais e feriados prolongados
+// Feriados nacionais, municipais de Marília e feriados prolongados
 const Feriados = (() => {
   const cache = {};
   const pascoa = (y) => { // algoritmo de Meeus/Jones/Butcher
@@ -120,6 +120,8 @@ const Feriados = (() => {
       [new Date(y, 8, 7), "Independência"], [new Date(y, 9, 12), "Nossa Senhora Aparecida"], [new Date(y, 10, 2), "Finados"],
       [new Date(y, 10, 15), "Proclamação da República"], [new Date(y, 10, 20), "Consciência Negra"], [new Date(y, 11, 25), "Natal"],
       [somar(p, -2), "Sexta-feira Santa"], [somar(p, 60), "Corpus Christi"],
+      // Feriados municipais de Marília
+      [new Date(y, 3, 4), "Aniversário de Marília"], [new Date(y, 11, 8), "Imaculada Conceição"],
     ];
     const feriados = new Map(lista.map(([d, n]) => [k(d), n]));
     const prolongados = new Map();
