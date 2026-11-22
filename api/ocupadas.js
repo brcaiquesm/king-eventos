@@ -33,7 +33,7 @@ export function diasOcupados(ics, hoje = new Date()) {
   for (const linha of desdobrar(ics)) {
     if (linha === "BEGIN:VEVENT") { ev = {}; continue; }
     if (linha === "END:VEVENT") {
-      if (ev && ev.ini && ev.status !== "CANCELLED" && ev.transp !== "TRANSPARENT") {
+      if (ev && ev.ini && ev.status !== "CANCELLED") {
         const ini = new Date(Date.UTC(ev.ini.y, ev.ini.m - 1, ev.ini.d));
         let fim = ev.fim ? new Date(Date.UTC(ev.fim.y, ev.fim.m - 1, ev.fim.d)) : new Date(ini);
         // em evento de dia inteiro o fim é exclusivo (dia seguinte)
@@ -51,7 +51,6 @@ export function diasOcupados(ics, hoje = new Date()) {
     if (nome === "DTSTART") ev.ini = dataLocal(valor, params.join(";"));
     else if (nome === "DTEND") ev.fim = dataLocal(valor, params.join(";"));
     else if (nome === "STATUS") ev.status = valor;
-    else if (nome === "TRANSP") ev.transp = valor;
   }
   const hojeK = new Intl.DateTimeFormat("en-CA", { timeZone: FUSO }).format(hoje);
   return [...dias].filter((d) => d >= hojeK).sort();
