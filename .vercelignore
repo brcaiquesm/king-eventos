@@ -1,0 +1,4 @@
+# Arquivos do repositório que não precisam ir para o site publicado
+ferramentas/
+README.md
+*.py
