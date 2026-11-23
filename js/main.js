@@ -15,7 +15,7 @@ const CONFIG = {
   },
   // Desconto no valor total conforme a quantidade de dias (do maior para o menor)
   descontos: [
-    { dias: 3, pct: 30 },
+    { dias: 3, pct: 25 },
     { dias: 2, pct: 20 },
   ],
   // Semanas com pacote próprio (mês-dia). Valor sob consulta.
@@ -128,7 +128,7 @@ const Feriados = (() => {
     const marcar = (de, ate, nome) => { for (let d = de; d <= ate; d = somar(d, 1)) prolongados.set(k(d), nome); };
     marcar(somar(p, -50), somar(p, -46), "feriado de Carnaval");
     for (const [d, n] of lista) {
-      const w = d.getDay(), nome = `feriado prolongado (${n})`;
+      const w = d.getDay(), nome = `feriado prolongado de ${n}`;
       if (w === 5) marcar(d, somar(d, 2), nome);                 // sexta: sex a dom
       else if (w === 1) marcar(somar(d, -2), d, nome);           // segunda: sáb a seg
       else if (w === 2) marcar(somar(d, -3), d, nome);           // terça: sáb a ter (ponte)
@@ -151,6 +151,7 @@ const Feriados = (() => {
   const antBtn = $("[data-cal-ant]"), proxBtn = $("[data-cal-prox]");
   const valorEl = $("[data-cal-valor]"), quartosEl = $("[data-cal-quartos]"), precoEl = $("[data-cal-preco]");
   const dicaEl = $("[data-cal-dica]"), horarioEl = $("[data-cal-horario]");
+  const quartosLabelEl = $(".cal__quartos"), inclusosEl = $("[data-cal-inclusos]");
   const zap = document.querySelector("[data-cal-btn]");
   const hoje = new Date(); hoje.setHours(0, 0, 0, 0);
   const iso = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
@@ -184,8 +185,10 @@ const Feriados = (() => {
     return comQuartos ? t.com : t.sem;
   };
   const pctPara = (n) => (CONFIG.descontos.find((x) => n >= x.dias) || { pct: 0 }).pct;
+  // Em 2 dias ou mais, os 2 quartos são obrigatórios (já inclusos no valor)
   const calcular = (de, ate, comQuartos) => {
     const lista = dias(de, ate);
+    if (lista.length > 1) comQuartos = true;
     const esp = lista.map(especial).find(Boolean);
     if (esp) return { n: lista.length, especial: esp };
     const base = lista.reduce((s, d) => s + precoDia(d, comQuartos), 0);
@@ -217,7 +220,10 @@ const Feriados = (() => {
       return;
     }
     const ate = fim || inicio;
-    const comQuartos = quartosEl.checked;
+    const multi = +ate !== +inicio;
+    const comQuartos = multi || quartosEl.checked;
+    quartosLabelEl.hidden = multi;
+    inclusosEl.hidden = !multi;
     const r = calcular(inicio, ate, comQuartos);
     const temOcupado = dias(inicio, ate).some(ocupada);
 
@@ -233,18 +239,18 @@ const Feriados = (() => {
     } else {
       precoEl.innerHTML = (r.pct
         ? `<p class="cal__de">De <s>${real(r.base)}</s> por</p><p class="cal__total">${real(r.total)}</p><p class="cal__economia">${r.pct}% de desconto: você economiza ${real(r.base - r.total)}</p>`
-        : `<p class="cal__total">${real(r.total)}</p>`) + `<p class="cal__obs">${comQuartos ? "Com os 2 quartos" : "Sem quartos"} · ${r.n === 1 ? "diária" : r.n + " dias"}</p>`;
+        : `<p class="cal__total">${real(r.total)}</p>`) + `<p class="cal__obs">${multi ? "Com os 2 quartos inclusos · " + r.n + " dias" : (comQuartos ? "Com os 2 quartos" : "Sem quartos") + " · diária"}</p>`;
     }
 
     // Dica de desconto
     const s = r.especial ? null : sugestao(r, comQuartos);
     dicaEl.hidden = !s;
-    if (s) dicaEl.innerHTML = `Adicione mais 1 dia (${semanaCurta(s.extra)}, ${dm(s.extra)}) e ganhe <strong>${s.pct}% de desconto</strong>: o total fica ${real(s.total)}.`;
+    if (s) dicaEl.innerHTML = `Adicione mais 1 dia (${semanaCurta(s.extra)}, ${dm(s.extra)}) e ganhe <strong>${s.pct}% de desconto</strong>${r.n === 1 && !comQuartos ? ", já com os 2 quartos inclusos" : ""}: o total fica ${real(s.total)}.`;
 
     // Horário
     horarioEl.innerHTML = r.n === 1
       ? `<strong>Diária avulsa: das 10h às 23h.</strong>${comQuartos ? " Na diária, os quartos servem para as crianças descansarem e guardar pertences." : ""}`
-      : `<strong>Entrada às 10h de ${dm(inicio)} e saída até 23h de ${dm(ate)}.</strong> ${comQuartos ? "Com os quartos, vocês podem dormir no local." : "Sem os quartos, vocês podem ficar no espaço, mas sem acesso aos quartos."}`;
+      : `<strong>Entrada às 10h de ${dm(inicio)} e saída até 23h de ${dm(ate)}.</strong> Os 2 quartos estão inclusos: vocês podem dormir no local.`;
 
     // Mensagem do WhatsApp
     const linhaData = r.n === 1
@@ -257,7 +263,7 @@ const Feriados = (() => {
       "Olá! Vim pelo site e quero reservar a King Eventos.",
       "",
       linhaData,
-      `🛏️ Quartos: ${comQuartos ? "com os 2 quartos" : "sem quartos"}`,
+      `🛏️ Quartos: ${multi ? "2 quartos inclusos (locação de 2 dias ou mais)" : comQuartos ? "com os 2 quartos" : "sem quartos"}`,
       linhaValor,
       "",
       r.n === 1 ? "Essa data está disponível?" : "Essas datas estão disponíveis?",
@@ -275,7 +281,7 @@ const Feriados = (() => {
       const data = new Date(vista.getFullYear(), vista.getMonth(), d);
       const occ = ocupada(data);
       const esp = especial(data), fer = Feriados.feriado(data);
-      const nomeDia = [fer, esp && esp !== `feriado prolongado (${fer})` ? esp : esp && "feriado prolongado"].filter(Boolean).join(" · ");
+      const nomeDia = [fer, esp && esp !== `feriado prolongado de ${fer}` ? esp : esp && "feriado prolongado"].filter(Boolean).join(" · ");
       const fds = [0, 6].includes(data.getDay());
       const ehInicio = inicio && +data === +inicio, ehFim = fim && +data === +fim;
       const meio = inicio && fim && data > inicio && data < fim;

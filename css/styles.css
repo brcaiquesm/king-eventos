@@ -389,6 +389,8 @@ a { color: inherit; }
 .preco--destaque { border-color: var(--ouro-escuro); }
 .preco--desconto dd { background: var(--dourado); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .valores__sub { font-family: var(--display); font-size: 1.5rem; color: var(--ouro-claro); margin: 3rem 0 1rem; }
+.valores__sub small { display: block; font-family: var(--texto); font-size: .9rem; font-weight: 500; color: var(--cinza); margin-top: .3rem; }
+.combos td.combos__pct { font-family: var(--texto); font-weight: 700; font-size: 1rem; color: var(--livre); }
 .combos-wrap { overflow-x: auto; }
 .combos { width: 100%; border-collapse: collapse; min-width: 32rem; }
 .combos th, .combos td { padding: .95rem 1rem; text-align: left; border-bottom: 1px solid var(--linha); }
@@ -402,6 +404,8 @@ a { color: inherit; }
 /* Valor no calendário */
 .cal__valor { margin-top: .9rem; padding-top: .9rem; border-top: 1px solid var(--linha); text-align: center; }
 .cal__valor[hidden] { display: none; }
+.cal__quartos[hidden], .cal__inclusos[hidden] { display: none; }
+.cal__inclusos { margin: 0; font-size: .85rem; font-weight: 600; color: var(--marfim); }
 .cal__quartos { display: inline-flex; align-items: center; gap: .65rem; cursor: pointer; font-weight: 600; font-size: .95rem; min-height: 2.75rem; }
 .cal__quartos input { position: absolute; opacity: 0; width: 1px; height: 1px; }
 .cal__quartos small { display: block; font-weight: 500; color: var(--cinza); font-size: .78rem; text-align: left; }

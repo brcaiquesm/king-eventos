@@ -46,7 +46,8 @@ HTML, CSS e JavaScript puros, sem build. Responsivo, com foco de teclado visíve
 Os preços ficam em `js/main.js`, no `CONFIG`:
 
 - `precos`: diária de segunda a quinta e de sexta/sábado/domingo/feriado, sem e com os 2 quartos.
-- `descontos`: 20% para 2 dias e 30% para 3 dias ou mais, sobre o valor total.
+- `descontos`: 20% para 2 dias e 25% para 3 dias ou mais, sobre o valor total.
+- Em 2 dias ou mais, os 2 quartos são obrigatórios e entram no cálculo; o botão de quartos só aparece na diária avulsa.
 - `periodosEspeciais`: semana do Natal e do Ano Novo, com valor sob consulta.
 - Feriados nacionais (incluindo Páscoa, Carnaval e Corpus Christi) e os municipais de Marília (04/04 e 08/12) são calculados sozinhos. Feriado comum custa como fim de semana; feriado prolongado fica como valor sob consulta.
 

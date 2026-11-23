@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="img/fotos/hero-noite.webp" media="(min-width: 901px)">
-  <link rel="stylesheet" href="css/styles.css?v=6">
+  <link rel="stylesheet" href="css/styles.css?v=7">
 
   <script type="application/ld+json">
   {
@@ -218,27 +218,27 @@
           <h3>Desconto por mais dias</h3>
           <dl>
             <div><dt>2 dias</dt><dd>20% off</dd></div>
-            <div><dt>3 dias ou mais</dt><dd>30% off</dd></div>
+            <div><dt>3 dias ou mais</dt><dd>25% off</dd></div>
           </dl>
-          <p>No valor total da locação.</p>
+          <p>No valor total. A partir de 2 dias, os 2 quartos já estão inclusos.</p>
         </article>
       </div>
 
-      <h3 class="valores__sub">Combos de fim de semana</h3>
+      <h3 class="valores__sub">Combos de fim de semana <small>com os 2 quartos inclusos</small></h3>
       <div class="combos-wrap">
         <table class="combos">
-          <thead><tr><th scope="col">Combo</th><th scope="col">Sem quartos</th><th scope="col">Com os 2 quartos</th></tr></thead>
+          <thead><tr><th scope="col">Combo</th><th scope="col">Desconto</th><th scope="col">Valor</th></tr></thead>
           <tbody>
-            <tr><th scope="row">Sexta + sábado</th><td><s>R$ 1.600</s> R$ 1.280</td><td><s>R$ 2.000</s> R$ 1.600</td></tr>
-            <tr><th scope="row">Sábado + domingo</th><td><s>R$ 1.600</s> R$ 1.280</td><td><s>R$ 2.000</s> R$ 1.600</td></tr>
-            <tr><th scope="row">Sexta + sábado + domingo</th><td><s>R$ 2.400</s> R$ 1.680</td><td><s>R$ 3.000</s> R$ 2.100</td></tr>
+            <tr><th scope="row">Sexta + sábado</th><td class="combos__pct">20%</td><td><s>R$ 2.000</s> R$ 1.600</td></tr>
+            <tr><th scope="row">Sábado + domingo</th><td class="combos__pct">20%</td><td><s>R$ 2.000</s> R$ 1.600</td></tr>
+            <tr><th scope="row">Sexta + sábado + domingo</th><td class="combos__pct">25%</td><td><s>R$ 3.000</s> R$ 2.250</td></tr>
           </tbody>
         </table>
       </div>
 
       <ul class="valores__info">
         <li><strong>Horário:</strong> entrada a partir das 10h e saída até 23h. Em 2 dias ou mais, entrada às 10h do primeiro dia e saída até 23h do último.</li>
-        <li><strong>Quartos:</strong> na diária, servem para as crianças descansarem e guardar pertences. Em vários dias, com os quartos você pode dormir no local; sem eles, pode ficar no espaço, mas sem acesso aos quartos.</li>
+        <li><strong>Quartos:</strong> opcionais só na diária avulsa, onde servem para as crianças descansarem e guardar pertences. Em locações de 2 dias ou mais, os 2 quartos já estão inclusos e vocês podem dormir no local.</li>
         <li><strong>Limpeza:</strong> R$ 200 só se o espaço não for entregue limpo e organizado.</li>
         <li><strong>Datas especiais:</strong> semana do Natal, semana do Ano Novo e feriados prolongados têm pacotes próprios, com valor sob consulta.</li>
         <li><strong>Contrato e danos:</strong> toda locação tem contrato assinado. Itens danificados são cobrados do locatário.</li>
@@ -379,8 +379,9 @@
             <label class="cal__quartos">
               <input type="checkbox" data-cal-quartos>
               <span class="cal__switch" aria-hidden="true"></span>
-              <span>Adicionar os 2 quartos <small>+R$ 200 por dia</small></span>
+              <span>Adicionar os 2 quartos <small>+R$ 200 na diária</small></span>
             </label>
+            <p class="cal__inclusos" data-cal-inclusos hidden>🛏️ Os 2 quartos já estão inclusos em locações de 2 dias ou mais.</p>
             <div class="cal__preco" data-cal-preco aria-live="polite"></div>
             <p class="cal__dica" data-cal-dica hidden></p>
             <p class="cal__horario" data-cal-horario></p>
@@ -455,6 +456,6 @@
     </symbol>
   </svg>
 
-  <script src="js/main.js?v=5" defer></script>
+  <script src="js/main.js?v=6" defer></script>
 </body>
 </html>
